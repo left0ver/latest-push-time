@@ -7,7 +7,6 @@ const config:Configuration = {
     mode: process.env.NODE_ENV === 'production' ? "production":"development",
     devtool: process.env.NODE_ENV === 'production' ? false:'inline-source-map',
     target:'node',
-    watch:true,
     entry: {
         index: './src/index.ts',
     },
@@ -27,12 +26,16 @@ const config:Configuration = {
   module:{
       rules:[
           {
-              test: /\.ts$/,
+              test: /\.tsx?$/,
               exclude: /node_modules/,
               use:{
                 loader:"babel-loader",
                 options: {
-                    presets: ["@babel/preset-typescript"],
+                    presets: [
+                        '@babel/preset-env', 
+                        "@babel/preset-typescript", 
+                ],
+                plugins: ["@babel/plugin-transform-runtime"],
                     cacheDirectory:true,
                 }
               }
@@ -54,7 +57,9 @@ const config:Configuration = {
             }
         },
         extractComments:false
-    }),new BundleAnalyzerPlugin()],
+    }),
+    // new BundleAnalyzerPlugin()
+],
   },
 
 }
