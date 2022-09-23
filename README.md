@@ -1,3 +1,5 @@
+<img src="https://visitor-badge.glitch.me/badge?page_id=left0ver.github-repo-last-updated-time"/>
+
 # About
 一个可以帮助你获取到你的 GitHub 仓库的最后一次 push 的时间以及生成对应的徽章
 
